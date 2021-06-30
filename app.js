@@ -1,100 +1,86 @@
+ 'use strict'
 
-   'use strict'
+ arrofobjects = [];
+ function kitten (name, interests ,isGoodwithcats,  isGoodwithDogs, isGoodwithkids){
+this.name =name;
+this.interests = interests;
+this.isGoodwithcats =isGoodwithcats;
+this.isGoodwithDogs =isGoodwithDogs;
+this.isGoodwithkids =isGoodwithkids;
+arrofobjects.push(this);
 
-   console.log(document);
+ }
 
-    let parent = document.getElementById('parent');
-console.log(parent);
+ let losi = new kitten ('losi' , ['napping','eating tona', 'cudding'], false,false,true);
 
+ let koki =new kitten ('koki', ['playing with puupies', 'running','eating mouses' , 'cudling'], true,true,true,false);
 
-let child-one = document.createElement('p');
-    console.log(child-one);
+ 
+ let jojo = new kitten ('jojo' , ['eating mouse', 'running', 'playing in balls'], false,true,true);
 
+kitten.prototybe.render=function(){
+    this.getAge();
 
-parent.appendChild(child);
-
-
-child.textContent = 'Hello to my website';
-
-
-let unOrderedList = document.createElement('ul');
-parent.appendChild(unOrderedList);
-
-let location = {
-
-    seattle:0,
-    Tokyo:0,
-    Dubai:0,
-    paris:0,
-    Lima:0,
-
-getseattle: function () {
-    this.seattle = randomnumber(23,65)+1
-
-   
-    }
-       
-
+ const parentElement =document.getElementById('kittenprofile')
+ const article = document.createElement ('article')
+ parentElement.appendchild(article);   
 }
 
+let h2 = document.createElement('h2')
+article.appendchild(h2);
+h2.textxontent = this.name;
+
+let p =document.createElement('p');
+article.appendchild(p);
+p.textcontent = ${this.name} is funny cat and is ${this.age} old ;
+ 
+const ul = document.createaelement('ul');
+article.appendchild(ul);
+
+for (let i = 0; < this.interests.length; i++ )
+    let li = document.createElement('li');
+    ul.appendchild(li);
+    li.textxontent = this.interests[i]
 
 
+let td1 = docuent.createElement('td');
+dataRow.appendchild(td1);
+td1.textcontent = this.isGoodwithCats;
 
+let td2 = docuent.createElement('td');
+dataRow.appendchild(td2);
+td2.textcontent = this.isGoodwithDogs;
 
+let td3 = docuent.createElement('td');
+dataRow.appendchild(td3);
+td1.textcontent = this.isGoodwithkids;
 
-console.log (location);
-console.log (location.seattle());
+const kittenform = document.getElementById('kittenform');
+ kittenform.addEventListener('submit',handlesubmit);
 
-function randomnumber(min, max){
-    return Math.floor(Math.random()*(max - min + 1)+ min);
-}
+ function handleSubmit(event){
+event.preventDefault();
+console.log(event);
+const newName =event.target.namefield.value;
+console.log(newName);
 
- getTokyo: function () {
-    this.Tokyo = randomnumber(3,24)+1
+const newLikes = event.target.likeField.value;
+console.log (newLikes)
 
-}
+const withcats = event.target.withcats.checked;
+console.log (withcats);
 
+const withDogs = event.target.withDogs.checked;
+console.log (withDogs);
 
-console.log (location);
-console.log (location.Tokyo());
+const withkids = event.target.withkids.checked;
+console.log (withkids);
 
-function randomnumber(min, max){
-    return Math.floor(Math.random()*(max - min + 1)+ min);
-}
+const newkitten =new kitten(newname,newlikes,withcats,withDogs,withkids);
+console.log(newkitten);
+newkitten.render()
+ }
 
-getDubai: function () {
-    this.Dubai = randomnumber(11,38)+1
-}
-
-console.log (location);
-console.log (location.Dubai());
-
-function randomnumber(min, max){
-    return Math.floor(Math.random()*(max - min + 1)+ min);
-}
-
-
-getparis: function () {
-    this.paris = randomnumber(20,38)+1
-}
-
-console.log (location);
-console.log (location.paris());
-
-function randomnumber(min, max){
-    return Math.floor(Math.random()*(max - min + 1)+ min);
-}
-
-getLima: function () {
-    this.Lima = randomnumber(2,16)+1
-
-
-console.log (location);
-console.log (location.Lima());
-
-function randomnumber(min, max){
-    return Math.floor(Math.random()*(max - min + 1)+ min);
-}
-
-// why the get function is not active is because thw this word not inside the main div let of location i i try but 
-// is still desapear ?
+ for(let i=0 ; i < arrofobjects.length; i++){
+     arrofobject[i].render();
+ }
