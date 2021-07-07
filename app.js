@@ -1,86 +1,138 @@
  'use strict'
-
- arrofobjects = [];
- function kitten (name, interests ,isGoodwithcats,  isGoodwithDogs, isGoodwithkids){
-this.name =name;
-this.interests = interests;
-this.isGoodwithcats =isGoodwithcats;
-this.isGoodwithDogs =isGoodwithDogs;
-this.isGoodwithkids =isGoodwithkids;
-arrofobjects.push(this);
-
- }
-
- let losi = new kitten ('losi' , ['napping','eating tona', 'cudding'], false,false,true);
-
- let koki =new kitten ('koki', ['playing with puupies', 'running','eating mouses' , 'cudling'], true,true,true,false);
-
  
- let jojo = new kitten ('jojo' , ['eating mouse', 'running', 'playing in balls'], false,true,true);
 
-kitten.prototybe.render=function(){
-    this.getAge();
 
- const parentElement =document.getElementById('kittenprofile')
- const article = document.createElement ('article')
- parentElement.appendchild(article);   
+
+ const workingHours = ['6am','7am','8am','9am','10am','11am','12am','1am','2am','3am','4am','5am','6am','7am',];
+
+function random (min,max){
+    return Math.floor(Math.random() * (max - min + 1) + min);
+
+}
+let shopsArray = [];
+function shop (locationName, minCustomers,maxCustomer,avgcookies){
+this.locationName = locationName;
+this.minCustomers = minCustomers;
+this.maxCustomer  = maxCustomer;
+this.avgcookies   = avgcookies;
+
+this.customersEachHour = [];
+
+this.cookiesEachHours = [];
+
+this.totalcookiesperday = 0;
+shopsArray.push(this);
 }
 
-let h2 = document.createElement('h2')
-article.appendchild(h2);
-h2.textxontent = this.name;
+shops.prototype.calcuCustomersEachHour = function (){
 
-let p =document.createElement('p');
-article.appendchild(p);
-p.textcontent = ${this.name} is funny cat and is ${this.age} old ;
- 
-const ul = document.createaelement('ul');
-article.appendchild(ul);
+    for (let i = 0; i < workingHours.length; i++) (
 
-for (let i = 0; < this.interests.length; i++ )
-    let li = document.createElement('li');
-    ul.appendchild(li);
-    li.textxontent = this.interests[i]
+      this.CustomersEachHour.push(random(this.mincustomers,this.maxCustomers));
+    )
+}
+
+shops.prototype.calcCookiesEachHours = function() {
+for (let i = 0; i < workingHour.length i++ ){
+    this.cookieEachHours.push(Math.floor(this.avgCookies * this.
+        customersEachHour[i]));
+        this.total += this.cookiesEachHours[i];   
+}
+this.totalcookiesperDay+=this.cookiesEachHours[i];
+
+}
+
+let seattle= new shops('seattle',23,65,6.3);
+let tokyo= new shops('tokyo',3,24,1.2);
+let dubai = new shops('Dubai' 11, 38, 3.7);
+let lima = new shops ('Lima' 2, 16, 4.6);
+
+console.log(shopsArray);
 
 
-let td1 = docuent.createElement('td');
-dataRow.appendchild(td1);
-td1.textcontent = this.isGoodwithCats;
 
-let td2 = docuent.createElement('td');
-dataRow.appendchild(td2);
-td2.textcontent = this.isGoodwithDogs;
+}
+let parent =document.getElementById('results');
+console.log(parent);
+let tableElement = document.createElement('table');
+parent.appendchild(tableElement);
 
-let td3 = docuent.createElement('td');
-dataRow.appendchild(td3);
-td1.textcontent = this.isGoodwithkids;
+function makeheader(){
 
-const kittenform = document.getElementById('kittenform');
- kittenform.addEventListener('submit',handlesubmit);
+let headerRow=document.createElement('tr');
+tableElement.appendChild(headerRow);
 
- function handleSubmit(event){
-event.preventDefault();
-console.log(event);
-const newName =event.target.namefield.value;
-console.log(newName);
+let firsTh = document.createElement('th');
 
-const newLikes = event.target.likeField.value;
-console.log (newLikes)
+headerRow.appendChild(firsTh);
+firsTh.textcontent = 'Name';
 
-const withcats = event.target.withcats.checked;
-console.log (withcats);
+for (let i = 0; i < workingHours.length; i++){
 
-const withDogs = event.target.withDogs.checked;
-console.log (withDogs);
+   let thElement = document.createElement('th');
+   headerRow.appendChild(theElement); 
+   thElement.textcontent = workingHours[i];
+}
 
-const withkids = event.target.withkids.checked;
-console.log (withkids);
+let lastTh = document.createElement('th');
 
-const newkitten =new kitten(newname,newlikes,withcats,withDogs,withkids);
-console.log(newkitten);
-newkitten.render()
- }
+headerRow.appendChild(lastTh);
+lastTh.textcontent = 'Daily location Total';
 
- for(let i=0 ; i < arrofobjects.length; i++){
-     arrofobject[i].render();
- }
+makeheader();
+
+shops.prototype.render = function(){
+let dataRow=document.createElement('tr');
+tableElement.appendchild(dataRow);
+
+let nameData = document.createElement('td');
+dataRow.appendchild(nameData);
+nameData.textContent= this.locathionname;
+
+for (let i = 0; i < workingHours.length; i++) {
+let tdElement=document.createElement('td');
+dataRaw.appendChild(tdElement);
+tdElement.textContent=this.cookiesEachHour[i];
+
+
+   }
+let totalDailyforEachshop = document.createElement('td');
+dataRow.appendchild(totalDailyforEachshop);
+totalDailyforEachshop.textxontent =this.total
+}
+
+for (let i = 0; i <shopsArray.length; i++) {
+    shopsArray[i].calcCustomersEachHours();
+    shopsArray[i].calcCookiesEachHours();
+    shopsArray[i].render();
+
+}
+
+function makeFooter(){
+    let footerrow = document.createElement('tr');
+    tableElement.appendChild(footerRow);
+
+    let footerTh=document.createElement('th');
+    footerRow.appendchild(footerTh);
+    footerTh.textcontent = 'Totals';
+
+    let megaTotal=0;
+    for (let i = 0; i < workingHours.length; i++) {
+        for (let j = 0; j < shopsArray.length; j++) {
+            
+
+               totalEachHour += shopsArray[j].cookiesEachHour[i];
+        }   magaTotal += totalEachHour;  
+            
+            let   footerData = document.createElement('td');
+            footerRow.appendchild(footerData);
+            footerData.textcontent = totalEachHour;
+       
+    }
+    console.log(megaTotal);
+
+    let finalTd=document.createElement('td');
+}   footerRow.appendchild(finalTd);
+    finalTd.textcontent = megaTotal;
+
+makeFooter();
