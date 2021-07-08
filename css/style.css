@@ -2,3 +2,169 @@ table, th, td{
     border:solid black 10px;
 
 }
+
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    padding: 10px;
+    width:90%;
+    margin:0 auto;
+}
+
+header {
+
+   width:100%;
+   height:50px; 
+   margin:0 auto;
+   margin-bottom: 100px;
+   position: relative;
+
+}
+
+#logo {
+    display: inline-block;
+}
+
+
+ header #logo h1  {
+    position:relative ;
+    left: 45px;
+    bottom:47px  ;
+    font-size: 30px;
+    font-family: 'Yellowtail', cursive;
+
+}
+
+header #logo p {
+    position :relative;
+    bottom:44px;
+    left:45px;
+    opacity:50%;
+    font-size:10px;
+
+}
+
+
+
+  nav ul {
+
+     position: absolute;
+    right: 2%;
+    bottom: 23px;
+ } 
+
+ nav ul li {
+    display: inline-block;
+
+
+
+     }
+
+  nav ul li:nth-child(7)  {
+      padding-left: 10px;
+  } 
+
+  main {
+      width:100%;
+  }
+
+  main #hMain {
+    position: relative;
+    margin-bottom:20px;
+
+}
+main #hMain img {
+    position: absolute;
+    right:1%;
+} 
+ main #hMain h1 {
+     font-size: 30px;
+     font-weight: bolder;
+
+ }
+main #hMain p {
+    opacity:50%;
+    font-size:10px;
+
+}
+main #imgMain img {
+    width:100%;
+
+}
+main #imgMain article{
+    margin-top: 20px;
+}
+
+main #imgMain article p{
+font-size: larger;
+padding-bottom: 20px;
+opacity:70%;
+}
+
+#fMain {
+    position: relative;
+    width:100%;
+
+}
+
+#fMain img {
+    width:100%;
+
+}
+#fMain #left {
+    position:absolute;
+    bottom: 80px;
+    left :50px;
+    font-family: 'Yellowtail', cursive;
+    opacity: 70%;
+    font-size: 40px;
+
+
+
+}
+
+#fMain #right {
+position: absolute;
+bottom:80px;
+right:30px;
+opacity: 70%;
+font-family: 'Yellowtail', cursive;
+font-size: 40px;
+}
+
+footer{
+    position: relative;
+}
+footer #upFootr h3{
+    position:absolute;
+    top:10px;
+    left:80px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+ footer #upFootr p{
+     position :absolute;
+     top:40px;
+     left:80px;
+     opacity:70%; 
+ }
+
+ #down {
+     position:relative;
+     height:70px;
+
+ }
+
+ #down img {
+     position:absolute;
+     left : 50%;
+ }
+
+ #down p {
+    position:absolute;
+     left: 40%;
+     bottom:5%;
+     opacity:70%;
